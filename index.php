@@ -1,3 +1,10 @@
+<?php
+
+require('C:\xampp\htdocs\shopping_cart\src\shopping_cart.php');
+require('C:\xampp\htdocs\shopping_cart\src\products.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
