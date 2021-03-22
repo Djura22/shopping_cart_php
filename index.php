@@ -34,6 +34,29 @@ if (isset($_POST['remove1'])) {
 } elseif (isset($_POST['remove5'])) {
     $_SESSION['cart']->removeItem($products[4]['name']);
 }
+if (isset($_POST['up1'])) {
+    $_SESSION['cart']->addQuantity($products[0]['name']);
+} elseif (isset($_POST['up2'])) {
+    $_SESSION['cart']->addQuantity($products[1]['name']);
+} elseif (isset($_POST['up3'])) {
+    $_SESSION['cart']->addQuantity($products[2]['name']);
+} elseif (isset($_POST['up4'])) {
+    $_SESSION['cart']->addQuantity($products[3]['name']);
+} elseif (isset($_POST['up5'])) {
+    $_SESSION['cart']->addQuantity($products[4]['name']);
+}
+
+if (isset($_POST['down1'])) {
+    $_SESSION['cart']->reduceQuantity($products[0]['name']);
+} elseif (isset($_POST['down2'])) {
+    $_SESSION['cart']->reduceQuantity($products[1]['name']);
+} elseif (isset($_POST['down3'])) {
+    $_SESSION['cart']->reduceQuantity($products[2]['name']);
+} elseif (isset($_POST['down4'])) {
+    $_SESSION['cart']->reduceQuantity($products[3]['name']);
+} elseif (isset($_POST['down5'])) {
+    $_SESSION['cart']->reduceQuantity($products[4]['name']);
+}
 
 $cart = $_SESSION['cart'];
 ?>
@@ -67,6 +90,12 @@ $cart = $_SESSION['cart'];
         <form method="post">
             <input type="submit" name="remove1" value="Remove from cart"/>
         </form>
+        <form method="post">
+            <input type="submit" name="up1" value="+"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="down1" value="-"/>
+        </form>
     </div>
 
     <div class="card">
@@ -78,6 +107,12 @@ $cart = $_SESSION['cart'];
         </form>
         <form method="post">
             <input type="submit" name="remove2" value="Remove from cart"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="up2" value="+"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="down2" value="-"/>
         </form>
     </div>
 
@@ -91,6 +126,12 @@ $cart = $_SESSION['cart'];
         <form method="post">
             <input type="submit" name="remove3" value="Remove from cart"/>
         </form>
+        <form method="post">
+            <input type="submit" name="up3" value="+"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="down3" value="-"/>
+        </form>
     </div>
 
     <div class="card">
@@ -103,6 +144,12 @@ $cart = $_SESSION['cart'];
         <form method="post">
             <input type="submit" name="remove4" value="Remove from cart"/>
         </form>
+        <form method="post">
+            <input type="submit" name="up4" value="+"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="down4" value="-"/>
+        </form>
     </div>
 
     <div class="card">
@@ -114,6 +161,12 @@ $cart = $_SESSION['cart'];
         </form>
         <form method="post">
             <input type="submit" name="remove5" value="Remove from cart"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="up5" value="+"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="down5" value="-"/>
         </form>
     </div>
 

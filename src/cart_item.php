@@ -29,11 +29,6 @@ class CartItem {
         $this->quantity += 1;
     }
 
-    public function decreaseQuantity()
-    {
-        $this->quantity -= 1;
-    }
-
     public function getTotalCost() 
     {
         return $this->price * $this->quantity;
