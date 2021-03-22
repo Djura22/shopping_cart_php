@@ -23,6 +23,18 @@ if (isset($_POST['add1'])) {
     $_SESSION['cart']->addItem($products[4]['name'], $products[4]['price']);
 }
 
+if (isset($_POST['remove1'])) {
+    $_SESSION['cart']->removeItem($products[0]['name']);
+} elseif (isset($_POST['remove2'])) {
+    $_SESSION['cart']->removeItem($products[1]['name']);
+} elseif (isset($_POST['remove3'])) {
+    $_SESSION['cart']->removeItem($products[2]['name']);
+} elseif (isset($_POST['remove4'])) {
+    $_SESSION['cart']->removeItem($products[3]['name']);
+} elseif (isset($_POST['remove5'])) {
+    $_SESSION['cart']->removeItem($products[4]['name']);
+}
+
 $cart = $_SESSION['cart'];
 ?>
 
@@ -52,6 +64,9 @@ $cart = $_SESSION['cart'];
         <form method="post">
             <input type="submit" name="add1" value="Add to cart"/>
         </form>
+        <form method="post">
+            <input type="submit" name="remove1" value="Remove from cart"/>
+        </form>
     </div>
 
     <div class="card">
@@ -60,6 +75,9 @@ $cart = $_SESSION['cart'];
         <p class="price"><strong>£<?php echo number_format($products[1]['price'], 2); ?></strong></p>
         <form method="post">
             <input type="submit" name="add2" value="Add to cart"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="remove2" value="Remove from cart"/>
         </form>
     </div>
 
@@ -70,6 +88,9 @@ $cart = $_SESSION['cart'];
         <form method="post">
             <input type="submit" name="add3" value="Add to cart"/>
         </form>
+        <form method="post">
+            <input type="submit" name="remove3" value="Remove from cart"/>
+        </form>
     </div>
 
     <div class="card">
@@ -79,6 +100,9 @@ $cart = $_SESSION['cart'];
         <form method="post">
             <input type="submit" name="add4" value="Add to cart"/>
         </form>
+        <form method="post">
+            <input type="submit" name="remove4" value="Remove from cart"/>
+        </form>
     </div>
 
     <div class="card">
@@ -87,6 +111,9 @@ $cart = $_SESSION['cart'];
         <p class="price"><strong>£<?php echo number_format($products[4]['price'], 2); ?></strong></p>
         <form method="post">
             <input type="submit" name="add5" value="Add to cart"/>
+        </form>
+        <form method="post">
+            <input type="submit" name="remove5" value="Remove from cart"/>
         </form>
     </div>
 
@@ -111,7 +138,7 @@ $cart = $_SESSION['cart'];
                         foreach($cart->cart as $cartItem) {
                             $print = $cartItem->getName() . PHP_EOL;
                             echo nl2br($print);
-                        }
+                        }    
                     } ?>
                 </td>
                 <td><?php 
