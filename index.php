@@ -9,6 +9,21 @@ if (empty($_SESSION['cart'])) {
     $_SESSION['cart'] = $cart;
 }
 
+$print = [];
+
+if (isset($_POST['add1'])) {
+    $_SESSION['cart']->addItem($products[0]['name'], $products[0]['price']);
+} elseif (isset($_POST['add2'])) {
+    $_SESSION['cart']->addItem($products[1]['name'], $products[1]['price']);
+} elseif (isset($_POST['add3'])) {
+    $_SESSION['cart']->addItem($products[2]['name'], $products[2]['price']);
+} elseif (isset($_POST['add4'])) {
+    $_SESSION['cart']->addItem($products[3]['name'], $products[3]['price']);
+} elseif (isset($_POST['add5'])) {
+    $_SESSION['cart']->addItem($products[4]['name'], $products[4]['price']);
+}
+
+$cart = $_SESSION['cart'];
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +104,40 @@ if (empty($_SESSION['cart'])) {
                 <th width="13%">Product Price</th>
                 <th width="7.5%">Product Total</th>
                 <th width="10%">Cart Total: £<?php echo number_format($cart->getTotal(), 2); ?></th>
+            </tr>
+            <tr>
+                <td><?php
+                    if(!empty($cart->cart)) {
+                        foreach($cart->cart as $cartItem) {
+                            $print = $cartItem->getName() . PHP_EOL;
+                            echo nl2br($print);
+                        }
+                    } ?>
+                </td>
+                <td><?php 
+                    if(!empty($cart->cart)) {
+                        foreach($cart->cart as $cartItem) {
+                            $print = $cartItem->getQuantity() . PHP_EOL;
+                            echo nl2br($print);
+                        }
+                    } ?>
+                </td>
+                <td><?php 
+                    if(!empty($cart->cart)) {
+                        foreach($cart->cart as $cartItem) {
+                            $print = number_format($cartItem->getPrice(), 2) . PHP_EOL;
+                            echo nl2br("£" . $print);
+                        }    
+                    } ?>
+                </td>
+                <td><?php 
+                    if(!empty($cart->cart)) {
+                        foreach($cart->cart as $cartItem) {
+                            $print = number_format($cartItem->getTotalCost(), 2) . PHP_EOL;
+                            echo nl2br("£" . $print);
+                        }    
+                    } ?>
+                </td>
             </tr>
     </section>
 </div>
