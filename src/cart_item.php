@@ -24,4 +24,14 @@ class CartItem {
       return $this->quantity;
   }
 
+  public function increaseQuantity()
+  {
+      $this->quantity += 1;
+  }
+
+  public function decreaseQuantity()
+  {
+      $this->quantity -= 1;
+  }
+
 }
