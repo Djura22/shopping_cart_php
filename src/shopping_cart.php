@@ -28,4 +28,16 @@ class ShoppingCart {
         array_push($this->cart, $newCartItem);
     }
 
+    public function removeItem($name) {
+        $found = false;
+        foreach ($this->cart as $key => $value) {
+            if ($value->name == $name) {
+                $this->total -= $value->price * $value->quantity;
+                $found = true;
+                break;
+            }
+        }
+        if ($found) unset($this->cart[$key]);
+    }
+
 }
