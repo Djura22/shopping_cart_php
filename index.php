@@ -27,6 +27,71 @@ if (empty($_SESSION['cart'])) {
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+
+<div class="container">
+
+    <div class="card">
+        <img src="https://5.imimg.com/data5/BS/PG/MY-22915948/gold-sledge-hammer-500x500.jpg" style="width:100%">
+        <a class="title"><?php echo $products[0]['name']; ?></a>
+        <p class="price"><strong>£<?php echo number_format($products[0]['price'], 2); ?></strong></p>
+        <form method="post">
+            <input type="submit" name="add1" value="Add to cart"/>
+        </form>
+    </div>
+
+    <div class="card">
+        <img src="https://workware.co.uk/wp-content/uploads/2018/06/yankee_axe_1600g.jpg" style="width:100%">
+        <a class="title"><?php echo $products[1]['name']; ?></a>
+        <p class="price"><strong>£<?php echo number_format($products[1]['price'], 2); ?></strong></p>
+        <form method="post">
+            <input type="submit" name="add2" value="Add to cart"/>
+        </form>
+    </div>
+
+    <div class="card">
+        <img src="https://media.screwfix.com/is/image//ae235?src=ae235/5688P_P&$prodImageMedium$" style="width:100%">
+        <a class="title"><?php echo $products[2]['name']; ?></a>
+        <p class="price"><strong>£<?php echo number_format($products[2]['price'], 2); ?></strong></p>
+        <form method="post">
+            <input type="submit" name="add3" value="Add to cart"/>
+        </form>
+    </div>
+
+    <div class="card">
+        <img src="https://www.fullertool.com/wp-content/uploads/2018/10/300-0094_AA-768x768.jpg" style="width:100%">
+        <a class="title"><?php echo $products[3]['name']; ?></a>
+        <p class="price"><strong>£<?php echo number_format($products[3]['price'], 2); ?></strong></p>
+        <form method="post">
+            <input type="submit" name="add4" value="Add to cart"/>
+        </form>
+    </div>
+
+    <div class="card">
+        <img src="https://www.robertdyas.co.uk/media/catalog/product/cache/ee7f57371963fdaf9f4353c1acf7bd18/2/0/203343-_1_.gif" style="width:100%">
+        <a class="title"><?php echo $products[4]['name']; ?></a>
+        <p class="price"><strong>£<?php echo number_format($products[4]['price'], 2); ?></strong></p>
+        <form method="post">
+            <input type="submit" name="add5" value="Add to cart"/>
+        </form>
+    </div>
+
+</div>
+
+<div id="cart">
+    <section id="cart-content">
+        <div style="clear: both"></div>
+        <h3 class="title2">Shopping Cart</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+            <tr>
+                <th width="30%">Product Name</th>
+                <th width="10%">Quantity</th>
+                <th width="13%">Product Price</th>
+                <th width="7.5%">Product Total</th>
+                <th width="10%">Cart Total: £<?php echo number_format($cart->getTotal(), 2); ?></th>
+            </tr>
+    </section>
+</div>
   
 </body>
 </html>
